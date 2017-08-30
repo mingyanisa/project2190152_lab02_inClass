@@ -1,5 +1,4 @@
 package com.lab02.inClass;
-
 import java.applet.Applet;
 import java.awt.*;
 
@@ -66,13 +65,11 @@ class Title extends Thread {
 class Ship extends Thread {
     StarWars b;
     int x, y;
-
     Ship(StarWars b) {
         this.b = b;
         this.x = b.getWidth();
         this.y = b.getHeight();
     }
-
 
     void paint(Graphics g) {
         System.out.println("in paint");
