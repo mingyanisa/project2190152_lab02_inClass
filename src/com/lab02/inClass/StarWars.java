@@ -27,7 +27,7 @@ class Title extends Thread {
     String text2 = "in the galaxy far far away";
 
     int x, y;
-    int z=40;
+    int z = 40;
 
     Title(StarWars a) {
         this.a = a;
@@ -39,7 +39,9 @@ class Title extends Thread {
         while (y > 0) {
             y -= 10;
             --z;
-            if(z<0){ z=0;}
+            if (z < 0) {
+                z = 0;
+            }
             a.repaint();
             try {
                 sleep(200);
@@ -62,24 +64,50 @@ class Title extends Thread {
 
 class Ship extends Thread {
     StarWars b;
-    int x,y;
+    int x, y;
     Ship(StarWars b) {
         this.b = b;
         this.x = b.getWidth();
         this.y = b.getHeight();
     }
 
-
-    public void paint(Graphics g) {
+    void paint(Graphics g) {
         System.out.println("in paint");
         g.setColor(Color.BLACK);
-        Polygon triangle = new Polygon(new int[]{50,100,200}, new int[]{200,0,100}, 3);
-        g.fillPolygon(triangle);
+        Bullet bullet = new Bullet();
+
+        g.fillPolygon(bullet.shape);
+
     }
 
 
 }
-class Bullet extends Ship {
 
+class Bullet {
+    Polygon shape;
 
+    Bullet() {
+        shape = new Polygon(new int[]{50, 100, 200}, new int[]{200, 0, 100}, 3);
+    }
 }
+
+class BigShip {
+    int[] x;
+    int[] y;
+
+    public BigShip(int[] x, int[] y) {
+        x = new int[]{50, 100, 200};
+        y = new int[]{200, 0, 100};
+    }
+}
+
+class LittleShip {
+    int[] x;
+    int[] y;
+
+    public LittleShip(int[] x, int[] y) {
+        x = new int[]{10, 20, 40};
+        y = new int[]{40, 0, 20};
+    }
+}
+
